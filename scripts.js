@@ -1,23 +1,19 @@
-// Aguarda até que o DOM esteja completamente carregado
 document.addEventListener('DOMContentLoaded', () => {
-    // Referência ao formulário de contato
-    const form = document.querySelector('.contact-form');
+    const commentForm = document.querySelector('.comment-form');
+    const commentList = document.querySelector('.comment-list');
 
-    // Adiciona um ouvinte de evento para o envio do formulário
-    form.addEventListener('submit', (e) => {
-        e.preventDefault(); // Evita o envio padrão do formulário
-        alert('Obrigado por entrar em contato! Entraremos em breve.');
-        form.reset(); // Limpa os campos do formulário após o envio
-    });
+    commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = commentForm.name.value.trim();
+        const comment = commentForm.comment.value.trim();
 
-    // Exemplo: Animação simples ao rolar a página
-    const heroTitle = document.querySelector('.hero-title');
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        if (scrollY > 50) {
-            heroTitle.style.transform = `translateY(${scrollY * 0.5}px)`;
+        if (name && comment) {
+            const newComment = document.createElement('p');
+            newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
+            commentList.appendChild(newComment);
+            commentForm.reset();
         } else {
-            heroTitle.style.transform = 'translateY(0)';
+            alert('Por favor, preencha todos os campos!');
         }
     });
 });
