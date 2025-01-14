@@ -40,6 +40,10 @@ body {
     color: #ff4081;
 }
 
+.movie-list {
+    background: #f4f9fd;
+}
+
 .blog .post img {
     max-width: 100%;
     border-radius: 10px;
@@ -60,4 +64,8 @@ body {
     padding: 10px;
     background: #fce4ec;
     border-radius: 5px;
+}
+
+.copyright {
+    background: #979493;
 }
